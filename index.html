@@ -6,14 +6,25 @@
     <title></title>
     <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 </head>
 
 <body>
 
     <div id="app-7">
         <ol>
-            <todo-item v-for="item in groceryList" :todo="item" :key="item.id"></todo-item>
+            <grocery-item v-for="item in groceryList" :grocery="item" :key="item.id"></grocery-item>
         </ol>
+    </div>
+
+
+    <div id="watch-example">
+        <p>
+          Ask a yes/no question:
+          <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
     </div>
 
     <div id="example-2">
@@ -85,6 +96,25 @@
         <div :style="{ fontSize: postFontSize + 'em' }">
             <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
         </div>
+    </div>
+    <!-- <div id="validator-demo">
+        <my-component :prop-a="propA" :prop-b="propB" :prop-c="propC" :prop-d="propD" :prop-e="propE" :prop-f="propF">
+        </my-component>
+    </div> -->
+    <!-- <div id='slot-demo'>
+        <navigation-link url="/profile">
+            <span>Your Profile</span>
+        </navigation-link>
+    </div> -->
+    <!-- <div id='noble-slot-demo'>
+        <homepage-parent>
+            <p>noble-slot-test</p>
+        </homepage-parent>
+    </div> -->
+    <div id='scope-slot-demo'>
+        <scope-slot>
+            <p>test</p>
+        </scope-slot>
     </div>
     <style type="text/css">
     </style>
