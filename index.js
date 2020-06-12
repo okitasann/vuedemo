@@ -1,4 +1,4 @@
-Vue.component('grocery-item', {
+Vue.component('goods-list', {
   props: ['grocery'],
   template: '<li>{{ grocery.text  }}</li>'
 })
@@ -158,8 +158,9 @@ var exampleInput = new Vue({
 Vue.component('blog-post', {
   props: ['blog'],
   template: `
-  <div class="blog-post">
+  <div class="blog-post" v-on:enlarge-text="postFontSize += $event">
       <h3>{{ blog.title }}</h3>
+      <button v-on:click="$emit('enlarge-text', 0.1)">Enlarge text</button>
       <div v-html="blog.content"></div>
   </div>`
 });
@@ -246,43 +247,43 @@ var listenChildComponent = new Vue({
 //   data: {}
 // })
 
-Vue.component('scope-slot', {
-  template: `<div id='scope-slot-child-demo'>
-    <span>
-    <slot v-bind:user="user">
-    {{ user.lastName }}
-    </slot>
-    </span>
-    </div>`
-});
+// Vue.component('scope-slot', {
+//   template: `<div id='scope-slot-child-demo'>
+//     <span>
+//     <slot v-bind:user="user">
+//     {{ user.lastName }}
+//     </slot>
+//     </span>
+//     </div>`
+// });
 
-Vue.component('scope-parent-slot', {
-  template: `<template>
-    <current-user>
-      <template v-slot:default="slotProps">{{ slotProps.user.firstName }}</template>    
-    </current-user>
-    </template>`
-});
+// Vue.component('scope-parent-slot', {
+//   template: `<template>
+//     <current-user>
+//       <template v-slot:default="slotProps">{{ slotProps.user.firstName }}</template>    
+//     </current-user>
+//     </template>`
+// });
 
-var vue = new Vue({
-  el: '#scope-slot-child-demo',
-  data: {
-    user: {
-      lastName: 'ricardo',
-      firstName: 'li'
-    }
-  }
-});
+// var vue = new Vue({
+//   el: '#scope-slot-child-demo',
+//   data: {
+//     user: {
+//       lastName: 'ricardo',
+//       firstName: 'li'
+//     }
+//   }
+// });
 
-var Vue = new Vue({
-  el: '#scope-slot-demo',
-  data: {
-    user: {
-      lastName: 'ricardo',
-      firstName: 'li'
-    }
-  }
-});
+// var Vue = new Vue({
+//   el: '#scope-slot-demo',
+//   data: {
+//     user: {
+//       lastName: 'ricardo',
+//       firstName: 'li'
+//     }
+//   }
+// });
 
 // Vue.component('my-component', {
 //   props: {

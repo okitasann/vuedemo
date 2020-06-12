@@ -14,7 +14,7 @@
 
     <div id="app-7">
         <ol>
-            <grocery-item v-for="item in groceryList" :grocery="item" :key="item.id"></grocery-item>
+            <goods-list v-for="item in groceryList" :grocery="item" :key="item.id"></goods-list>
         </ol>
     </div>
 
@@ -81,6 +81,7 @@
         </select>
         <span>Selected: {{ selected }}</span>
     </div>
+    
     <div id='exmaple-input'>
         <input v-model.lazy.trim="message" placeholder="edit me">
         <p>Message is: {{ message }}</p>
@@ -89,9 +90,11 @@
     <div id='componenDemo'>
         <button-counter></button-counter>
     </div>
+
     <div id='blog-post-demo'>
         <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:blog="post"></blog-post>
     </div>
+    
     <div id="blog-posts-events-demo">
         <div :style="{ fontSize: postFontSize + 'em' }">
             <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post>
