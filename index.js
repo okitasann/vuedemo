@@ -1,6 +1,7 @@
 Vue.component('goods-list', {
   props: ['grocery'],
-  template: '<li>{{ grocery.text  }}</li>'
+  template: '<li>{{ grocery.text  }}</li>',
+  data:{}
 })
 
 var componentListDemo = new Vue({
@@ -101,7 +102,12 @@ var exampleRadio = new Vue({
 var exampleSelected = new Vue({
   el: '#example-5',
   data: {
-    selected: ''
+    selected: 'no choice',
+    options:[
+      { text: 'A', value: 'A' },
+      { text: 'B', value: 'B' },
+      { text: 'C', value: 'C' }
+    ]
   }
 })
 
