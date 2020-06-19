@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="dynamic-component-demo" class="demo">
+        <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['tab-button', { active: currentTab === tab }]"
+            v-on:click="currentTab = tab">{{ tab }}</button>
+        <!-- 组件的使用 通过currentTabComponent 来动态展示是哪一个组件 -->
+    <!-- <keep-alive>
+            <component :is="currentTabComponent"></component>
+            <keep-alive> -->
+    <!--</div> -->
+    <div id="counter-event-example">
+        <p>{{ total }}</p>
+        <button-counter v-on:increment="incrementTotal"></button-counter>
+    </div>
+</body>
+<script>
+    // //定义三个组件，可以比如是我们的三个页面，
+    // Vue.component('tab-home', {
+    //     template: '<div>Home component</div>' //组件1，也就是页面1
+    // })
+    // Vue.component('tab-posts', {
+    //     template: '<div>Posts component</div>' //组件2，页面2
+    // })
+    // Vue.component('tab-archive', {
+    //     template: '<div>Archive component</div>' //组件3，页面3
+    // })
+
+    // new Vue({
+    //     el: '#dynamic-component-demo',
+    //     data: {
+    //         currentTab: 'Home', //当前banner名称
+    //         tabs: ['Home', 'Posts', 'Archive'] //定义三个banner
+    //     },
+    //     computed: { //计算属性，实时监控获取当然banner的值，并返回到页面
+    //         currentTabComponent: function () {
+    //             return 'tab-' + this.currentTab.toLowerCase() //组件名称拼串，一定要和上边的三个组件名对应
+    //         }
+    //     }
+    // })
+    // 定义子组件
+    Vue.component('button-counter', {
+        template: '<button v-on:click="incrementCounter">{{ counter }}</button>', //1、子组件内，有一个click，当点击的时候 触发 incrementCounter 方法
+        data: function () {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            incrementCounter: function () {
+                this.counter += 1
+                this.$emit('increment',
+                    this.counter) //2、方法被触发以后，向父组件 发送一个信号广播，并传递参数 counter，名字就是 increment。
+            }
+        },
+        mounted() { //常用，挂载完成后执行
+            this.incrementCounter();
+        }
+    })
+    new Vue({
+        el: '#counter-event-example',
+        data: {
+            total: 0
+        },
+        methods: {
+            incrementTotal(counter) { //4、incrementTotal 被触发，获取到参数 counter 值，执行相应的操作
+                this.total = counter
+            }
+        }
+    })
+</script>
+
+</html>

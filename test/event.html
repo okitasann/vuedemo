@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <custom-input v-model="something"></custom-input>
+        <br />
+        {{something}}
+    </div>
+</body>
+<script>
+    // 注册
+    Vue.component('custom-input', {
+        props: ['something'],
+        template: '<input type="text"  v-bind:value="something" v-on:input="updateValue($event.target.value)"/>',
+        methods: {
+            updateValue: function (value) {
+                this.$emit('input', value)
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            something: ''
+        }
+
+    })
+</script>
+
+</html>
