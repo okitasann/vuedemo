@@ -7,7 +7,7 @@
         <el-input :placeholder="form.namePla" v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="年龄">
-        <el-input type="number"  v-model="form.age"></el-input>
+        <el-input type="number" v-model="form.age"></el-input>
       </el-form-item>
       <el-form-item label="地址">
         <el-input v-model="form.address"></el-input>
@@ -15,7 +15,6 @@
     </el-form>
 
     <el-button type="primary" @click="ageAdd">子Age+1</el-button>
-
   </div>
 </template>
 
@@ -32,8 +31,8 @@ export default {
     };
   },
   methods: {
-      ageAdd() {
-        this.form.age++;
+    ageAdd() {
+      this.form.age++;
     }
   },
   props: {
@@ -49,6 +48,6 @@ export default {
         this.form = val;
       }
     }
-  },
+  }
 };
 </script>

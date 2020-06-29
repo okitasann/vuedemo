@@ -1,21 +1,19 @@
 <!-- 父组件 parent.vue -->
 
 <template>
-    <div class="parent">
-        <h3>问卷调查</h3>
-        子：
-        <child :formData.sync="form"></child>
-        <hr/>
-        <div class="">
-            父：
-            <p>姓名：{{ form.name }}</p>
-            <p>年龄：{{ form.age }}</p>
-            <p>地址：{{ form.address }}</p>
+  <div class="parent">
+    <h3>问卷调查</h3>子：
+    <child :formData.sync="form"></child>
+    <hr />
+    <div class>
+      父：
+      <p>姓名：{{ form.name }}</p>
+      <p>年龄：{{ form.age }}</p>
+      <p>地址：{{ form.address }}</p>
 
-            <el-button type="primary" @click="ageAdd">父Age-1</el-button>
-
-        </div>
+      <el-button type="primary" @click="ageAdd">父Age-1</el-button>
     </div>
+  </div>
 </template>
 
 <script>

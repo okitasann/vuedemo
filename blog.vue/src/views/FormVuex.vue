@@ -1,17 +1,18 @@
 <!-- 父组件 parent.vue -->
 
 <template>
-    <div class="parent">
-        <h3>问卷调查</h3>
-        <child ></child><!-- 注意： 这里已经没有 .sync 了 -->
-        <div class="">
-            <br>
-            <br>
-            <p>数据：{{_fatherData}}</p>
-        </div>
-
-        <el-button type="primary" @click="getData">测试api，请看控制台</el-button>
+  <div class="parent">
+    <h3>问卷调查</h3>
+    <child></child>
+    <!-- 注意： 这里已经没有 .sync 了 -->
+    <div class>
+      <br />
+      <br />
+      <p>数据：{{_fatherData}}</p>
     </div>
+
+    <el-button type="primary" @click="getData">测试api，请看控制台</el-button>
+  </div>
 </template>
 
 <script>
